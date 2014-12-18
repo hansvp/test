@@ -63,9 +63,9 @@ DW:: data width
 === Register space, version 1.0
 
 // DO NOT REMOVE THE FOLLOWING 3 LINES. INCLUDES THE COMPLETE REGISTER LIST:
-:leveloffset: 1
+
 include::peek_1_0_regs.adoc[]
-:leveloffset: 0
+
 
 === Register space, version 1.0.10b
 
