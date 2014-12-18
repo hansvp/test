@@ -1,0 +1,109 @@
+// YOU CAN EDIT THIS FILE TO ADD YOUR OWN DOCUMENTATION
+
+// DO NOT REMOVE THE FOLLOWING 4 LINES.
+peek
+====
+:toc: macro
+:replacements.(?<!\\)\(R\): (R)
+
+toc::[]
+
+
+[horizontal]
+Vendor:: TPVision
+Library:: Snake
+Name:: peek
+Version:: 1.0
+
+
+
+*********************************************************************************************
+This documentation can be edited by the user. To do this, edit the asciidoc file 'peek_1_0.adoc'.
+
+Then generate the documentation again in ipRegTool (IP Catalog tab) for conversion to html.
+
+More on the *asciidoc markup*:
+
+* link:http://powerman.name/doc/asciidoc[AsciiDoc cheatsheet] - for a quick start
+* link:http://www.methods.co.nz/asciidoc/userguide.html[AsciiDoc User Guide] - full blown reference
+
+*********************************************************************************************
+
+// EDIT BELOW
+
+== Design description
+
+Debug block that 'peeks' at the pixel value on a programmable pixel location in the video frame.
+
+This block has been known as 'CALI' in legacy video pipes.
+
+=== Functionality
+
+* the pixel location can extend the active video frame and be in the blanking area
+
+[NOTE]
+=====
+On register level, the code is split in two versions:
+
+1.0:: for 11 or more bits. Two registers are needed for the results.
+
+1.0.10b:: for 10bit data. The results on the 3 components fit in 1 register, 
+=====
+
+=== Ports
+
+rv_in:: first video input channel
+gy_in:: second video input channel
+bu_in:: third video input channel
+
+=== Parameters
+
+DW:: data width
+
+=== Register space, version 1.0
+
+// DO NOT REMOVE THE FOLLOWING 3 LINES. INCLUDES THE COMPLETE REGISTER LIST:
+:leveloffset: 1
+include::peek_1_0_regs.adoc[]
+:leveloffset: 0
+
+=== Register space, version 1.0.10b
+
+:leveloffset: 1
+include::peek_1_0_10b_regs.adoc[]
+:leveloffset: 0
+
+
+== Development
+
+* Expected upper range on columns is 5830 and on rows is 3222. Calculated with these parameters: : 594 MHz pixel clock, 6% deviation, frame rate 48Hz, total height: 2250 lines.
+* Double buffering is not relevant for this design.
+
+== Revision history
+
+1.0::
+  Inital release
+
+1.0.10b::
+    Special version for 10-bit data.
+  
+// == Issues
+
+// .Known bugs
+// * ...
+// * ...
+
+// .Extra features
+// * ...
+
+// .Improvements
+
+// .Optimizations
+
+ 
+// == References
+
+// [bibliography]
+// - Author. 'A very interesting article'.
+
+

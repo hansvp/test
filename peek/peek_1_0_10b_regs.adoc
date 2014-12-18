@@ -1,0 +1,37 @@
+Memory map register overview
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[options="header"]
+|=======================
+|Address|Name|Reset value
+|xref:R00000000[0x0000]|PEEK_LOC    |0x780078
+|xref:R00000004[0x0004]|PEEK_RESULT |0x0000
+|=======================
+
+Fields in detail
+~~~~~~~~~~~~~~~~
+Note: unsigned integers in the valid range[[R00000000]]
+[caption=""]
+.0x00 ( 0 ) - PEEK_LOC
+[cols="2,1,1,4v,1,1,1,1",options="header"]
+|=======================
+|Name|#Bits|Bit range|Description|Access|Volatile|Valid range|Reset value
+|peek_col    |13|12..0|column-coordinate of the the signal to peek (starts at 0).
+|read-only   |False   |0..8191| 120
+|peek_row    |12|27..16|row-coordinate of the the signal to peek (starts at 0).
+|read-only   |False   |0..4095| 120
+|=======================
+
+[[R00000004]]
+[caption=""]
+.0x04 ( 4 ) - PEEK_RESULT
+[cols="2,1,1,4v,1,1,1,1",options="header"]
+|=======================
+|Name|#Bits|Bit range|Description|Access|Volatile|Valid range|Reset value
+|peek_rv     |10|9..0|peek result on rv component
+|read-only   |False   |0..1023|   0
+|peek_gy     |10|19..10|peek result on gy component
+|read-only   |False   |0..1023|   0
+|peek_bu     |10|29..20|peek result on bu component
+|read-only   |False   |0..1023|   0
+|=======================
+
